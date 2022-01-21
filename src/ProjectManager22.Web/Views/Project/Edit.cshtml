@@ -1,0 +1,69 @@
+﻿@model ProjectManager22.Domain.Dtos.ProjectDto
+
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View</h1>
+
+<h4>ProjectDto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manager" class="control-label"></label>
+                <input asp-for="Manager" class="form-control" />
+                <span asp-validation-for="Manager" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstimatedProjectEndDate" class="control-label"></label>
+                <input asp-for="EstimatedProjectEndDate" class="form-control" />
+                <span asp-validation-for="EstimatedProjectEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RealProjectEndDate" class="control-label"></label>
+                <input asp-for="RealProjectEndDate" class="form-control" />
+                <span asp-validation-for="RealProjectEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BudgetTotal" class="control-label"></label>
+                <input asp-for="BudgetTotal" class="form-control" />
+                <span asp-validation-for="BudgetTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="Status"
+                        asp-items="@ViewBag.Status"></select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
